@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:ui';
 
 import 'package:qrscanner/src/widgets/custom_navbar.dart';
 import 'package:qrscanner/src/widgets/scan_button.dart';
@@ -8,6 +10,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Color.fromRGBO(52, 54, 101, 0.0),
+    ));
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
