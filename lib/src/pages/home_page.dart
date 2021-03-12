@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:qrscanner/src/widgets/custom_navbar.dart';
+import 'package:qrscanner/src/widgets/scan_button.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
 
@@ -7,6 +10,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
         title: Text('History'),
         actions: [
           IconButton(
@@ -15,6 +20,9 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      body: Center(child: Text('Home Page')),
+      bottomNavigationBar: CustomNavBar(),
+      floatingActionButton: ScanButton(),
     );
   }
 }
