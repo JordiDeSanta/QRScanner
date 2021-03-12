@@ -11,12 +11,12 @@ class CustomNavBar extends StatelessWidget {
     final uiState = Provider.of<UiProvider>(context);
 
     return BottomNavigationBar(
+      onTap: (int i) => uiState.selectedMenuOpt = i,
       currentIndex: uiState.selectedMenuOpt,
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.map),
           label: 'Map',
-          
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.compass_calibration),
