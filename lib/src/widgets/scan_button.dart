@@ -15,6 +15,8 @@ class ScanButton extends StatelessWidget {
           false,
           ScanMode.QR,
         );
+
+        
       },
     );
   }
