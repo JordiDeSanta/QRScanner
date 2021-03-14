@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:qrscanner/src/pages/directions_page.dart';
 import 'package:qrscanner/src/pages/maps_page.dart';
+import 'package:qrscanner/src/providers/db_provider.dart';
 import 'package:qrscanner/src/providers/ui_state.dart';
 import 'package:qrscanner/src/widgets/custom_navbar.dart';
 import 'package:qrscanner/src/widgets/scan_button.dart';
@@ -45,6 +46,9 @@ class _HomePageBody extends StatelessWidget {
     final uiState = Provider.of<UiProvider>(context);
 
     int currentIndex = uiState.selectedMenuOpt;
+
+    // TODO: Read db
+    DBProvider.db.database;
 
     switch (currentIndex) {
       case 0:
