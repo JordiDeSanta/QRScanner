@@ -34,7 +34,7 @@ class DBProvider {
             id INTEGER PRIMARY KEY,
             type TEXT,
             value TEXT
-          )
+          );
         ''');
       },
     );
