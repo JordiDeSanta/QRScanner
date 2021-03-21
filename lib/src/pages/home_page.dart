@@ -6,6 +6,7 @@ import 'package:qrscanner/src/models/scan_model.dart';
 import 'package:qrscanner/src/pages/directions_page.dart';
 import 'package:qrscanner/src/pages/maps_page.dart';
 import 'package:qrscanner/src/providers/db_provider.dart';
+import 'package:qrscanner/src/providers/scan_list_provider.dart';
 import 'package:qrscanner/src/providers/ui_state.dart';
 import 'package:qrscanner/src/widgets/custom_navbar.dart';
 import 'package:qrscanner/src/widgets/scan_button.dart';
@@ -19,6 +20,13 @@ class HomePage extends StatelessWidget {
       statusBarColor: Color.fromRGBO(52, 54, 101, 0.0),
     ));
 
+    final uiState = Provider.of<UiProvider>(context);
+
+    int currentIndex = uiState.selectedMenuOpt;
+
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -27,7 +35,19 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.delete_forever),
-            onPressed: () {},
+            onPressed: () {
+              switch (currentIndex) {
+                case 0:
+                  // scanListProvider.deleteScansByType('http');
+                  break;
+                case 1:
+                  // scanListProvider.deleteScansByType('geo');
+                  break;
+                default:
+                  // scanListProvider.deleteScansByType('http');
+                  break;
+              }
+            },
           ),
         ],
       ),
@@ -48,11 +68,16 @@ class _HomePageBody extends StatelessWidget {
 
     int currentIndex = uiState.selectedMenuOpt;
 
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
+        scanListProvider.loadScansPerType('geo');
         return MapsPage();
         break;
       case 1:
+        scanListProvider.loadScansPerType('http');
         return DirectionsPage();
         break;
       default:

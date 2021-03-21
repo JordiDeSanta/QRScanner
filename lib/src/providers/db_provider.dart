@@ -118,6 +118,14 @@ class DBProvider {
     return res;
   }
 
+  Future<int> deleteScansByType(String type) async {
+    final db = await database;
+    final res = await db.rawDelete('''
+      SELECT * FROM Scans WHERE type = '$type'
+    ''');
+    return res;
+  }
+
   Future<int> deleteAllScans() async {
     final db = await database;
     final res = await db.rawDelete('''
