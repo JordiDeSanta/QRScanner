@@ -20,10 +20,6 @@ class HomePage extends StatelessWidget {
       statusBarColor: Color.fromRGBO(52, 54, 101, 0.0),
     ));
 
-    final uiState = Provider.of<UiProvider>(context);
-
-    int currentIndex = uiState.selectedMenuOpt;
-
     final scanListProvider =
         Provider.of<ScanListProvider>(context, listen: false);
 
@@ -36,17 +32,8 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.delete_forever),
             onPressed: () {
-              switch (currentIndex) {
-                case 0:
-                  // scanListProvider.deleteScansByType('http');
-                  break;
-                case 1:
-                  // scanListProvider.deleteScansByType('geo');
-                  break;
-                default:
-                  // scanListProvider.deleteScansByType('http');
-                  break;
-              }
+              scanListProvider.deleteAll();
+              return;
             },
           ),
         ],
