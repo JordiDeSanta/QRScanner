@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:qrscanner/src/pages/home_page.dart';
 import 'package:qrscanner/src/pages/map_page.dart';
+import 'package:qrscanner/src/providers/scan_list_provider.dart';
 import 'package:qrscanner/src/providers/ui_state.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => new UiProvider()),
-
+        ChangeNotifierProvider(create: (_) => new ScanListProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
