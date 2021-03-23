@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import 'package:qrscanner/src/models/scan_model.dart';
 import 'package:qrscanner/src/pages/directions_page.dart';
 import 'package:qrscanner/src/pages/maps_page.dart';
-import 'package:qrscanner/src/providers/db_provider.dart';
 import 'package:qrscanner/src/providers/scan_list_provider.dart';
 import 'package:qrscanner/src/providers/ui_state.dart';
 import 'package:qrscanner/src/widgets/custom_navbar.dart';
