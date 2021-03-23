@@ -33,6 +33,23 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(scan.value),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.location_searching_outlined),
+            onPressed: () async {
+              final GoogleMapController controller = await _controller.future;
+              controller.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: scan.getLatLng(),
+                    zoom: 17,
+                    tilt: 50,
+                  ),
+                ),
+              );
+            },
+          )
+        ],
       ),
       body: GoogleMap(
         markers: markers,
