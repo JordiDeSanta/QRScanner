@@ -21,13 +21,23 @@ class _MapPageState extends State<MapPage> {
     final CameraPosition _initialPoint = CameraPosition(
       target: scan.getLatLng(),
       zoom: 17,
+      tilt: 50,
     );
+
+    Set<Marker> markers = new Set<Marker>();
+    markers.add(new Marker(
+      markerId: MarkerId('geo-marker'),
+      position: scan.getLatLng(),
+    ));
 
     return Scaffold(
       appBar: AppBar(
         title: Text(scan.value),
       ),
       body: GoogleMap(
+        markers: markers,
+        zoomControlsEnabled: false,
+        myLocationButtonEnabled: false,
         mapType: MapType.normal,
         initialCameraPosition: _initialPoint,
         onMapCreated: (GoogleMapController controller) {
