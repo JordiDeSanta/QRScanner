@@ -14,6 +14,8 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   Completer<GoogleMapController> _controller = Completer();
 
+  MapType mapType = MapType.normal;
+
   @override
   Widget build(BuildContext context) {
     final ScanModel scan = ModalRoute.of(context).settings.arguments;
@@ -55,10 +57,20 @@ class _MapPageState extends State<MapPage> {
         markers: markers,
         zoomControlsEnabled: false,
         myLocationButtonEnabled: false,
-        mapType: MapType.normal,
+        mapType: mapType,
         initialCameraPosition: _initialPoint,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.layers),
+        onPressed: () {
+          mapType == MapType.normal
+              ? mapType = MapType.satellite
+              : mapType = MapType.normal;
+
+          setState(() {});
         },
       ),
     );
