@@ -16,6 +16,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Color.fromRGBO(52, 54, 101, 0.0),
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarDividerColor: Colors.white,
     ));
 
     final scanListProvider =
